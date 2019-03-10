@@ -1,0 +1,15 @@
+<div class="p-2 bg-dark text-white text-right navbar" *ngIf="_tokenService.token">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+      <button mat-menu-item  routerLink="/ordenes">
+          <mat-icon>work</mat-icon>
+          <span>Ordenes</span>
+        </button>    
+    <button mat-menu-item (click)="signOut()">
+      <mat-icon>close</mat-icon>
+      <span>Cerrar Sesion</span>
+    </button>    
+  </mat-menu>
+</div>

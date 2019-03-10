@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.icon{
+    opacity: 0.7;
+}
+
+.icon:hover{
+    opacity: inherit;
+    cursor: pointer;
+}
+
+
+.green-icon {
+    color: #4CAF50;
+}
+
+.blue-icon{
+    color: #448AFF;
+}

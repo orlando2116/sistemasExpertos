@@ -1,0 +1,35 @@
+<div class="container">
+    <cdk-virtual-scroll-viewport
+    itemSize="1"
+    style="height: 600px;">
+
+  <table class="table table-striped">
+      <thead>
+    <tr>
+      <th>CODIGO</th>
+      <th>FECHA CREACION</th>
+      <th>COMENTARIO</th>
+      <th>TIPO DE DOCUMENTO</th>
+    </tr>
+  </thead>
+  <tbody>
+      <ng-container
+      *cdkVirtualFor="let item of purchaseOrders | paginate: { itemsPerPage: 10, currentPage: currentPage,totalItems:totalItems }">
+      <tr style="width:100%; min-height: 30px;" (click)="loadPurchaseProvider(item)">
+          <td>{{item.code}}</td>
+          <td>{{item.created_at | convertDate}}</td>
+          <td>{{item.comment}}</td>   
+          <td>{{item.document_type.name}}</td>
+      </tr>
+    </ng-container> 
+  </tbody>    
+  </table>
+</cdk-virtual-scroll-viewport>
+
+ <div class="paginator">
+    <pagination-controls (pageChange)="p = $event"
+          (pageChange)="changePageData($event)">
+          </pagination-controls>
+ </div>
+</div>
+

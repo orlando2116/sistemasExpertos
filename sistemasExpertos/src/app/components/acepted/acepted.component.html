@@ -1,0 +1,32 @@
+  <div class="container">
+
+  <table mat-table [dataSource]="ordenes" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="tipoMovimiento">
+      <th mat-header-cell *matHeaderCellDef> tipo de movimiento </th>
+      <td mat-cell *matCellDef="let element"> {{element.movement_type.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="documentos">
+      <th mat-header-cell *matHeaderCellDef> Documentos </th>
+      <td mat-cell *matCellDef="let element"> <mat-icon class="icon green-icon" data-toggle="modal" data-target="#modalDocuments" (click)="openDocuments(element)">bookmarks</mat-icon> </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="historicoDocumentos">
+      <th mat-header-cell *matHeaderCellDef> historico documentos </th>
+      <td mat-cell *matCellDef="let element"> <mat-icon class="icon blue-icon" data-toggle="modal" data-target="#modalHistory" (click)="openHistory(element)">history</mat-icon> </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<app-documents [documents]="documents"></app-documents>
+<app-history-movements [historyMovements]="historyMovements"></app-history-movements>
+ 
